@@ -1,3 +1,8 @@
 {
-"default": {}
+  "default": {
+    "assimp": {
+      "baseline": "2024-12-14",
+      "port-version": 0
+    }
+  }
 }
