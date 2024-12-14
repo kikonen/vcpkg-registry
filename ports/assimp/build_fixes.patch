@@ -209,7 +209,7 @@ diff --git a/code/CMakeLists.txt b/code/CMakeLists.txt
 index 9b27086..b7c2ccb 100644
 --- a/code/CMakeLists.txt
 +++ b/code/CMakeLists.txt
-@@ -1050,8 +1050,8 @@ ELSE() # IF (ASSIMP_BUILD_USD_IMPORTER)
+@@ -1044,8 +1044,8 @@ ELSE() # IF (ASSIMP_BUILD_USD_IMPORTER)
  ENDIF() # IF (ASSIMP_BUILD_USD_IMPORTER)
  
  # pugixml
@@ -218,9 +218,9 @@ index 9b27086..b7c2ccb 100644
 +IF(1)
 +  #hunter_add_package(pugixml)
    find_package(pugixml CONFIG REQUIRED)
- ELSE()
+ ELSEIF(NOT TARGET pugixml::pugixml)
    SET( Pugixml_SRCS
-@@ -1063,30 +1063,30 @@ ELSE()
+@@ -1054,30 +1054,30 @@ ELSEIF(NOT TARGET pugixml::pugixml)
  ENDIF()
  
  # utf8
@@ -368,7 +368,7 @@ index 9b27086..b7c2ccb 100644
    INCLUDE_DIRECTORIES(
        ${IRRXML_INCLUDE_DIR}
        ../contrib/openddlparser/include
-@@ -1412,45 +1413,47 @@ TARGET_INCLUDE_DIRECTORIES ( assimp PUBLIC
+@@ -1412,46 +1413,48 @@ TARGET_INCLUDE_DIRECTORIES ( assimp PUBLIC
    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/../include>
    $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/../include>
    $<INSTALL_INTERFACE:${ASSIMP_INCLUDE_INSTALL_DIR}>
@@ -380,18 +380,14 @@ index 9b27086..b7c2ccb 100644
 +IF(1)
    TARGET_LINK_LIBRARIES(assimp
 -      PUBLIC
--      #polyclipping::polyclipping
 -      openddlparser::openddl_parser
--      #poly2tri::poly2tri
 -      minizip::minizip
 -      ZLIB::zlib
 -      RapidJSON::rapidjson
 -      utf8cpp
 +      PRIVATE
-+      polyclipping::polyclipping
 +      #openddlparser::openddl_parser
 +      ${OPENDDL_PARSER_LIBRARIES}
-+      poly2tri::poly2tri
 +      unofficial::minizip::minizip
 +      ZLIB::ZLIB
 +      rapidjson
@@ -414,6 +410,9 @@ index 9b27086..b7c2ccb 100644
    if (ASSIMP_BUILD_DRACO)
 -    target_link_libraries(assimp ${draco_LIBRARIES})
 +    target_link_libraries(assimp PRIVATE ${draco_LIBRARIES})
+   endif()
+   if(TARGET pugixml::pugixml)
+     target_link_libraries(assimp pugixml::pugixml)
    endif()
  ENDIF()
  
