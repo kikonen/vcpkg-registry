@@ -16,3 +16,14 @@ https://github.com/kikonen/vcpkg-registry
 - https://stackoverflow.com/questions/987372/what-is-the-format-of-a-patch-file
 - https://learn.microsoft.com/en-us/vcpkg/reference/vcpkg-configuration-json
 - https://github.com/Microsoft/vcpkg-docs/blob/main/vcpkg/consume/git-registries.md
+- https://devblogs.microsoft.com/cppblog/vcpkg-updates-static-linking-is-now-available/
+
+# Test
+
+```powershell
+# DLL
+vcpkg install assimp --overlay-ports=vcpkg-registry/ports/assimp
+
+# STATIC
+vcpkg install assimp:x64-windows-static --overlay-ports=vcpkg-registry/ports/assimp
+```
