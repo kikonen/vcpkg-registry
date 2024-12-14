@@ -17,6 +17,7 @@ https://github.com/kikonen/vcpkg-registry
 - https://learn.microsoft.com/en-us/vcpkg/reference/vcpkg-configuration-json
 - https://github.com/Microsoft/vcpkg-docs/blob/main/vcpkg/consume/git-registries.md
 - https://devblogs.microsoft.com/cppblog/vcpkg-updates-static-linking-is-now-available/
+- https://learn.microsoft.com/en-us/vcpkg/reference/vcpkg-json#platform-expression
 
 # Test
 
