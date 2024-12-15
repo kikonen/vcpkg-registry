@@ -12,6 +12,12 @@ https://github.com/kikonen/vcpkg-registry
 
 # setup
 
+## NOTE: remember
+- update date version tag
+- update gittree
+- update baseline in project using this
+
+**gittree**: versions/a-/assimp.json
 ```bash
 git rev-parse HEAD:ports/assimp
 ```
