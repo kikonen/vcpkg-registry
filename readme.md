@@ -3,11 +3,18 @@
 ## packages
 
 - assimp master
-  + 2024-12-14
+  + 2024-12-15
 
 # registry
 
 https://github.com/kikonen/vcpkg-registry
+
+
+# setup
+
+```bash
+git rev-parse HEAD:ports/assimp
+```
 
 # Instructions
 
