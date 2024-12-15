@@ -368,7 +368,7 @@ index 9b27086..b7c2ccb 100644
    INCLUDE_DIRECTORIES(
        ${IRRXML_INCLUDE_DIR}
        ../contrib/openddlparser/include
-@@ -1412,46 +1413,48 @@ TARGET_INCLUDE_DIRECTORIES ( assimp PUBLIC
+@@ -1412,46 +1413,50 @@ TARGET_INCLUDE_DIRECTORIES ( assimp PUBLIC
    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/../include>
    $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/../include>
    $<INSTALL_INTERFACE:${ASSIMP_INCLUDE_INSTALL_DIR}>
@@ -386,8 +386,10 @@ index 9b27086..b7c2ccb 100644
 -      RapidJSON::rapidjson
 -      utf8cpp
 +      PRIVATE
++      polyclipping::polyclipping
 +      #openddlparser::openddl_parser
 +      ${OPENDDL_PARSER_LIBRARIES}
++      poly2tri::poly2tri
 +      unofficial::minizip::minizip
 +      ZLIB::ZLIB
 +      rapidjson
